@@ -19,6 +19,7 @@ jobs:
           distribution: 'adopt'
           cache: 'maven'
       - run: mvn clean compile install
+      - run: mvn clean install -Dmaven.test.skip=true
       - run: mkdir staging && cp target/*.jar staging
       - uses: actions/upload-artifact@v3
         with:
